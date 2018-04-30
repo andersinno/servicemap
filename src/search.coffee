@@ -22,19 +22,24 @@ define (require) ->
             rateLimitWait: 50
         datumTokenizer: (datum) -> Bloodhound.tokenizers.whitespace datum.name[lang]
         queryTokenizer: Bloodhound.tokenizers.whitespace
-    linkedeventsEngine = new Bloodhound
-        name: 'events_suggestions'
-        remote:
-            url: appSettings.linkedevents_backend + "/search/?type=event&language=#{lang}&page_size=4&input=%QUERY"
-            ajax: settings.applyAjaxDefaults {}
-            filter: (parsedResponse) ->
-                parsedResponse.data
-            rateLimitWait: 50
-        datumTokenizer: (datum) -> Bloodhound.tokenizers.whitespace datum.name[lang]
-        queryTokenizer: Bloodhound.tokenizers.whitespace
 
     servicemapEngine.initialize()
-    linkedeventsEngine.initialize()
+
+    if appSettings.linkedevents_backend
+        linkedeventsEngine = new Bloodhound
+            name: 'events_suggestions'
+            remote:
+                url: appSettings.linkedevents_backend + "/search/?type=event&language=#{lang}&page_size=4&input=%QUERY"
+                ajax: settings.applyAjaxDefaults {}
+                filter: (parsedResponse) ->
+                    parsedResponse.data
+                rateLimitWait: 50
+            datumTokenizer: (datum) -> Bloodhound.tokenizers.whitespace datum.name[lang]
+            queryTokenizer: Bloodhound.tokenizers.whitespace
+
+        linkedeventsEngine.initialize()
+    else
+        linkedeventsEngine = null
 
     linkedeventsEngine: linkedeventsEngine
     servicemapEngine: servicemapEngine

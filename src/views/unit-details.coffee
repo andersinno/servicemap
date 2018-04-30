@@ -91,16 +91,17 @@ define (require) ->
 
             # Events
             #
-            if @model.eventList.isEmpty()
-                @listenTo @model.eventList, 'reset', (list) =>
-                    @updateEventsUi list.fetchState
-                    @renderEvents list
-                @model.eventList.pageSize = @INITIAL_NUMBER_OF_EVENTS
-                @model.getEvents()
-                @model.eventList.pageSize = @NUMBER_OF_EVENTS_FETCHED
-            else
-                @updateEventsUi(@model.eventList.fetchState)
-                @renderEvents(@model.eventList)
+            if appSettings.linkedevents_backend
+                if @model.eventList.isEmpty()
+                    @listenTo @model.eventList, 'reset', (list) =>
+                        @updateEventsUi list.fetchState
+                        @renderEvents list
+                    @model.eventList.pageSize = @INITIAL_NUMBER_OF_EVENTS
+                    @model.getEvents()
+                    @model.eventList.pageSize = @NUMBER_OF_EVENTS_FETCHED
+                else
+                    @updateEventsUi(@model.eventList.fetchState)
+                    @renderEvents(@model.eventList)
 
             if @model.feedbackList.isEmpty()
                 @listenTo @model.feedbackList, 'reset', (list) =>
