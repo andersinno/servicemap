@@ -14,6 +14,7 @@ supported_languages:
 linkedevents_backend: https://api.hel.fi/linkedevents/v1
 otp_backend: https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql
 respa_backend: https://api.hel.fi/respa/v1
+respa_backend_unit_id_prefix: "tprek:"
 static_path: /static/
 livereload: true
 url_prefix: /

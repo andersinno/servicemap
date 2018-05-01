@@ -20,7 +20,8 @@ define (require) ->
             unitId = @model.get 'id'
             $.ajax
                 dataType: 'json'
-                url: "#{appSettings.respa_backend}/resource/?unit=tprek:#{unitId}&page_size=100"
+                url: "#{appSettings.respa_backend}/resource/?" +
+                     "unit=#{appSettings.respa_backend_unit_id_prefix}#{unitId}&page_size=100"
                 success: (data) =>
                     if data.results.length < 1
                         return
