@@ -69,3 +69,5 @@ service_node_colors:
     #26098: [192,79,220]
     # Sports and physical exercise
     #28128: [252,173,0]
+
+default_root_service_node_id: 1400

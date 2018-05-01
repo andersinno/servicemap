@@ -4,7 +4,7 @@ define (require) ->
     class ColorMatcher
         @serviceNodeColors: appSettings.service_node_colors
 
-        constructor: (@selectedServices, @selectedServiceNodes, @defaultRootColor = 1400) ->
+        constructor: (@selectedServices, @selectedServiceNodes, @defaultRootColor = appSettings.default_root_service_node_id) ->
 
         @rgb: (r, g, b) ->
             return "rgb(#{r}, #{g}, #{b})"
