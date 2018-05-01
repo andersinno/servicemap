@@ -103,12 +103,15 @@ define (require) ->
                     @updateEventsUi(@model.eventList.fetchState)
                     @renderEvents(@model.eventList)
 
-            if @model.feedbackList.isEmpty()
-                @listenTo @model.feedbackList, 'reset', (list) =>
+            if appSettings.open311_backend
+                if @model.feedbackList.isEmpty()
+                    @listenTo @model.feedbackList, 'reset', (list) =>
+                        @renderFeedback @model.feedbackList
+                    @model.getFeedback()
+                else
                     @renderFeedback @model.feedbackList
-                @model.getFeedback()
             else
-                @renderFeedback @model.feedbackList
+                @$el.find('.section.feedback-section').hide()
 
             @accessibilityRegion.show new AccessibilityDetailsView
                 model: @model
