@@ -113,10 +113,11 @@ define (require) ->
             @accessibilityRegion.show new AccessibilityDetailsView
                 model: @model
 
-            view = new ResourceReservationListView model: @model
-            @listenTo view, 'ready', =>
-                @resourceReservationRegion.$el.removeClass('hidden')
-            @resourceReservationRegion.show view
+            if appSettings.respa_backend
+                view = new ResourceReservationListView model: @model
+                @listenTo view, 'ready', =>
+                    @resourceReservationRegion.$el.removeClass('hidden')
+                @resourceReservationRegion.show view
 
             app.vent.trigger 'site-title:change', @model.get('name')
 
