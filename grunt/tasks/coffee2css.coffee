@@ -1,5 +1,6 @@
 path = require 'path'
 requirejs = require 'requirejs'
+appConfig = require 'config'
 
 module.exports = (grunt) ->
   cssTemplate = """
@@ -20,6 +21,7 @@ module.exports = (grunt) ->
   requirejs.config config
 
   grunt.registerMultiTask 'coffee2css', 'Generate css classes from colors in a coffeescript file.', ->
+    global['appSettings'] = appConfig
     ColorMatcher = requirejs 'cs!app/color'
     grunt.log.writeln "Generating CSS for service node colors."
     options = @options()

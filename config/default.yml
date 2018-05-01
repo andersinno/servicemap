@@ -29,3 +29,43 @@ open311_write_backend: https://api.hel.fi/servicemap/open311
 use_client_bundle: false
 host_based_language_selection: true
 default_param_language: fi
+
+service_node_colors:
+    # Housing and environment
+    1400: [77,139,0]
+
+    # Administration and economy
+    1401: [192,79,220]
+
+    # Culture and leisure
+    1403: [252,173,0]
+
+    # Maps, information services and communication
+    1402: [154,0,0]
+
+    # Teaching and education
+    1087: [0,81,142]
+    # Family and social services
+    783: [67,48,64]
+
+    # Child daycare and pre-school education
+    1405: [60,210,0]
+
+    # Health care
+    986: [142,139,255]
+
+    # Public safety
+    1061: [240,66,0]
+
+    # The following are not root services
+    # in the simplified service tree
+    # Legal protection and democracy
+    #26244: [192,79,220]
+    # Planning, real estate and construction
+    #25142: [40,40,40]
+    # Tourism and events
+    #25954: [252,172,0]
+    # Entrepreneurship, work and taxation
+    #26098: [192,79,220]
+    # Sports and physical exercise
+    #28128: [252,173,0]
