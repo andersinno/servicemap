@@ -37,7 +37,7 @@ define (require) ->
     if getIeVersion() and getIeVersion() < 9
         ICON_SIZE *= .8
     MARKER_POINT_VARIANT = false
-    DEFAULT_CENTER = [60.171944, 24.941389] # todo: depends on city
+    DEFAULT_CENTER = appSettings.default_center
 
     class MapView extends mixOf MapBaseView, TransitMapMixin
         tagName: 'div'

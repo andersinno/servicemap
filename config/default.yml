@@ -73,3 +73,18 @@ service_node_colors:
 default_root_service_node_id: 1400
 enable_heatmap_layer: true
 enable_statistics_layer: true
+
+cities:
+    - name: helsinki
+      location: [60.171944, 24.941389]
+    - name: espoo
+      location: [60.19792, 24.708885]
+    - name: vantaa
+      location: [60.309045, 25.004675]
+    - name: kauniainen
+      location: [60.21174, 24.729595]
+
+default_center: [60.171944, 24.941389]
+max_bounds:
+    - [59.4, 23.8]
+    - [61.5, 25.8]

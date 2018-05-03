@@ -21,11 +21,11 @@ define (require) ->
 
     # TODO: remove duplicates
     MARKER_POINT_VARIANT = false
-    DEFAULT_CENTER =
-        helsinki: [60.171944, 24.941389]
-        espoo: [60.19792, 24.708885]
-        vantaa: [60.309045, 25.004675]
-        kauniainen: [60.21174, 24.729595]
+
+    DEFAULT_CENTER = {}
+    for city in appSettings.cities
+        DEFAULT_CENTER[city.name] = city.location
+
 
     ICON_SIZE = 40
     if getIeVersion() and getIeVersion() < 9
@@ -111,7 +111,7 @@ define (require) ->
         calculateInitialOptions: ->
             city = p13n.getCity()
             unless city?
-                city = 'helsinki'
+                city = appSettings.cities[0].name
             center = DEFAULT_CENTER[city]
             # Default state without selections
             defaults =

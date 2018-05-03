@@ -38,13 +38,12 @@ mixin renderLanguage(code, name)
       +renderLanguage('sv', 'Svenska')
       +renderLanguage('en', 'English')
   #accessibility-personalisation
-  .section
-    h3= t('personalisation.city')
-    ul.personalisations.coats-of-arms
-      +renderCity('helsinki')
-      +renderCity('espoo')
-      +renderCity('vantaa')
-      +renderCity('kauniainen')
+  if appSettings.cities.length > 1
+    .section
+      h3= t('personalisation.city')
+      ul.personalisations.coats-of-arms
+        each city in appSettings.cities
+          +renderCity(city.name)
 .personalisation-message.sm-popup.open
   .arrow.top
   span.icon.icon-icon-wheelchair

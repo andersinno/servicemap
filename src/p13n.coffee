@@ -49,7 +49,7 @@ define (require) ->
         map_background_layer: ['servicemap', 'ortographic', 'guidemap', 'accessible_map']
         heatmap_layer: [null, HEATMAP_LAYERS...]
         statistics_layer: [null, STATISTICS_LAYERS...]
-        city: [null, 'helsinki', 'espoo', 'vantaa', 'kauniainen']
+        city: [null, city.name for city in appSettings.cities]
 
     PROFILE_IDS =
         'wheelchair': 1
@@ -73,11 +73,7 @@ define (require) ->
             visually_impaired: false
             colour_blind: false
             mobility: null
-        city:
-            helsinki: false
-            espoo: false
-            vantaa: false
-            kauniainen: false
+        city: _.object([city.name, false] for city in appSettings.cities)
         transport:
             by_foot: false
             bicycle: false
