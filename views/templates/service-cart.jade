@@ -53,77 +53,79 @@ else
   //-           .progress-bar.progress-bar-danger(style='width:10%')
   //-             span.legend 10%
 
-  li.data-layer.data-layer-heatmap
-    span.layer-icon.icon-icon-areas-and-districts
-    fieldset
-      legend.service-cart-collapser
-        a.collapser.collapsed(data-toggle="collapse", href="#heatmap-layers-collapse")
-          = t('service_cart.data_layer.heatmap')
-          if selectedHeatmapLayer
-            | : &nbsp;
-            span
-              = t('service_cart.data_layers.' + selectedHeatmapLayer)
-          if selectedHeatmapLayer
-            .heatmap-legend
-              .progress
-                =t('statistics.population_density')
-              .heatmap-scale
-                .start
-                  =t('statistics.low_density')
-                .end
-                  =t('statistics.high_density')
-      #heatmap-layers-collapse.collapse
-        .collapse-content
-          for layer in heatmapLayers
-            if layer.selected
-              - checked = 'checked'
-            else
-              - checked = null
-            - layer_id = 'layer-' + layer.name
-            label.layer(data-layer=layer.name, for='heatmap-' +layer_id)
-              input(type='radio', name='heatmap-layers', id!='heatmap-' + layer_id, value='' + layer.name, checked=checked, class=cls)
-              | &nbsp;
-              = t('service_cart.data_layers.' + layer.name)
+  if appSettings.enable_heatmap_layer
+    li.data-layer.data-layer-heatmap
+      span.layer-icon.icon-icon-areas-and-districts
+      fieldset
+        legend.service-cart-collapser
+          a.collapser.collapsed(data-toggle="collapse", href="#heatmap-layers-collapse")
+            = t('service_cart.data_layer.heatmap')
+            if selectedHeatmapLayer
+              | : &nbsp;
+              span
+                = t('service_cart.data_layers.' + selectedHeatmapLayer)
+            if selectedHeatmapLayer
+              .heatmap-legend
+                .progress
+                  =t('statistics.population_density')
+                .heatmap-scale
+                  .start
+                    =t('statistics.low_density')
+                  .end
+                    =t('statistics.high_density')
+        #heatmap-layers-collapse.collapse
+          .collapse-content
+            for layer in heatmapLayers
+              if layer.selected
+                - checked = 'checked'
+              else
+                - checked = null
+              - layer_id = 'layer-' + layer.name
+              label.layer(data-layer=layer.name, for='heatmap-' +layer_id)
+                input(type='radio', name='heatmap-layers', id!='heatmap-' + layer_id, value='' + layer.name, checked=checked, class=cls)
+                | &nbsp;
+                = t('service_cart.data_layers.' + layer.name)
 
-  li.data-layer.data-layer-statistics
-    span.layer-icon.icon-icon-areas-and-districts
-    fieldset
-      legend.service-cart-collapser
-        a.collapser.collapsed(data-toggle="collapse", href="#statistics-layers-collapse")
-          = t('service_cart.data_layer.statistics')
-          if (selectedStatisticsLayer.name !== null)
-            div
-              = t('service_cart.data_layers.' + selectedStatisticsLayer.name)
-              if selectedStatisticsLayer.type === 'forecast'
-                span  (#{t('statistics.forecast')}&nbsp;2024/2025)
-          if selectedStatisticsLayer.max
-            .statistics-legend
-              .progress
-              .statistics-scale
-                - var format = selectedStatisticsLayer.max > 10 ? 0 : 1
-                - var unit = selectedStatisticsLayer.max <= 1 ? '%' : ''
-                - var correctedMax = selectedStatisticsLayer.max <= 1 ? selectedStatisticsLayer.max * 100 : selectedStatisticsLayer.max
-                .start
-                  = 0 + unit
-                .mid
-                  = (correctedMax / 2).toFixed(format) + unit
-                .end
-                  = (correctedMax).toFixed(format) + unit
-      #statistics-layers-collapse.collapse
-        .collapse-content
-          for layer in statisticsLayers
-            if layer.selected
-              - checked = 'checked'
-            else
-              - checked = null
-            - layerPath = layer.type ? layer.type + '.' + layer.name : 'null'
-            - layer_id = 'layer-' + layerPath.replace('.', '-')
-            label.layer(data-layer="#{layerPath}", for!='statistics-' + layer_id)
-              input(type='radio', name='statistics-layers', id!='statistics-' + layer_id, value=layerPath, checked=checked, class=cls)
-              | &nbsp;
-              = t('service_cart.data_layers.' + layer.name)
-              if layer.type === 'forecast'
-                span  (#{t('statistics.forecast')}&nbsp;2024/2025)
+  if appSettings.enable_statistics_layer
+    li.data-layer.data-layer-statistics
+      span.layer-icon.icon-icon-areas-and-districts
+      fieldset
+        legend.service-cart-collapser
+          a.collapser.collapsed(data-toggle="collapse", href="#statistics-layers-collapse")
+            = t('service_cart.data_layer.statistics')
+            if (selectedStatisticsLayer.name !== null)
+              div
+                = t('service_cart.data_layers.' + selectedStatisticsLayer.name)
+                if selectedStatisticsLayer.type === 'forecast'
+                  span  (#{t('statistics.forecast')}&nbsp;2024/2025)
+            if selectedStatisticsLayer.max
+              .statistics-legend
+                .progress
+                .statistics-scale
+                  - var format = selectedStatisticsLayer.max > 10 ? 0 : 1
+                  - var unit = selectedStatisticsLayer.max <= 1 ? '%' : ''
+                  - var correctedMax = selectedStatisticsLayer.max <= 1 ? selectedStatisticsLayer.max * 100 : selectedStatisticsLayer.max
+                  .start
+                    = 0 + unit
+                  .mid
+                    = (correctedMax / 2).toFixed(format) + unit
+                  .end
+                    = (correctedMax).toFixed(format) + unit
+        #statistics-layers-collapse.collapse
+          .collapse-content
+            for layer in statisticsLayers
+              if layer.selected
+                - checked = 'checked'
+              else
+                - checked = null
+              - layerPath = layer.type ? layer.type + '.' + layer.name : 'null'
+              - layer_id = 'layer-' + layerPath.replace('.', '-')
+              label.layer(data-layer="#{layerPath}", for!='statistics-' + layer_id)
+                input(type='radio', name='statistics-layers', id!='statistics-' + layer_id, value=layerPath, checked=checked, class=cls)
+                | &nbsp;
+                = t('service_cart.data_layers.' + layer.name)
+                if layer.type === 'forecast'
+                  span  (#{t('statistics.forecast')}&nbsp;2024/2025)
 
   each item in items
     li.service-nodes

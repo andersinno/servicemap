@@ -71,3 +71,5 @@ service_node_colors:
     #28128: [252,173,0]
 
 default_root_service_node_id: 1400
+enable_heatmap_layer: true
+enable_statistics_layer: true
