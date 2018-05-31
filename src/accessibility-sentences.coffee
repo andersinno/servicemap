@@ -27,6 +27,7 @@ define (require) ->
     _parse = (data) ->
         sentences = { }
         groups = { }
+        console.log data
         _.each data.accessibility_sentences, (sentence) ->
             group = _buildTranslatedObject sentence, 'sentence_group'
             key = _generateId group.fi
@@ -46,6 +47,8 @@ define (require) ->
             jsonpCallback: 'jcbAsc'
             cache: true
             success: (data) ->
+                unless data
+                    data = {'accessibility_sentences': []}
                 callback _parse(data)
             timeout: TIMEOUT
             error: (jqXHR, errorType, exception) ->
