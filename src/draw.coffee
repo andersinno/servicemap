@@ -87,7 +87,8 @@ define (require) ->
             c.closePath()
             c.beginPath()
             c.arc @point..., @defaults.radius * @ratio - 1, 0, 2 * Math.PI
-            c.strokeStyle = '#fcf7f5'
+            [r, g, b] = appSettings.berry_border_color or [252, 247, 245]
+            c.strokeStyle = "rgb(#{r}, #{g}, #{b})"
             c.lineWidth = 1
             c.stroke()
             c.closePath()

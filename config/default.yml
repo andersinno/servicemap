@@ -70,6 +70,8 @@ service_node_colors:
     # Sports and physical exercise
     #28128: [252,173,0]
 
+berry_border_color: [252, 247, 245]
+
 default_root_service_node_id: 1400
 enable_heatmap_layer: true
 enable_statistics_layer: true
