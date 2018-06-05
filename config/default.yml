@@ -29,6 +29,8 @@ open311_write_backend: https://api.hel.fi/servicemap/open311
 use_client_bundle: false
 host_based_language_selection: true
 default_param_language: fi
+accessibility_sentence_loader: helsinki
+accessibility_backend: https://www.hel.fi/palvelukarttaws/rest/v4
 
 service_node_colors:
     # Housing and environment

@@ -38,7 +38,7 @@ define (require) ->
             @listenTo accessibility, 'change', @render
             @listenTo @accessibilitySentences, 'change', @render
             @collapsed = true
-            accessibilitySentences.fetch id: @model.id,
+            accessibilitySentences.fetch {id: @model.id, attributes: @model.attributes},
                 (data) =>
                     @accessibilitySentences.set 'data', data
         onShow: ->
