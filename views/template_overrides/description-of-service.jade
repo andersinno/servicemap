@@ -1,0 +1,112 @@
+.modal-content.about
+  .modal-header
+    .section
+      if lang == 'fi'
+        h1
+          | Palvelukartta
+          a(href="#", data-dismiss="modal").icon.icon-icon-close
+      if lang == 'sv'
+        h1
+          | Servicekartan
+          a(href="#", data-dismiss="modal").icon.icon-icon-close
+      if lang == 'en'
+        h1
+          | The Service Map
+          a(href="#", data-dismiss="modal").icon.icon-icon-close
+  .modal-body
+    .section
+      if lang == 'fi'
+        h2
+          span.icon.icon-icon-info
+          |  Tietoa palvelusta
+        p Palvelukartta esittää Turun kaupungin toimipisteet ja palvelutiedot. Palvelukartta opastaa kaupunkilaisia löytämään aina ajantasaisimman tiedon kaupungin tarjoamista palveluista ja niiden esteettömyydestä. Kartan kautta on mahdollisuus antaa palautetta ja käydä avointa keskustelua suoraan toimipisteistä ja palveluista vastaavien kanssa.
+        p Palvelukartan toimintoihin voit tutustua opastuskierroksella.
+
+        div.prominent-wrapper
+          a.prominent.start-tour-button(href='#') Aloita opastuskierros
+        p Palvelukartta pohjautuu Helsingin kaupungin avoimella lähdekoodilla tekemään toteutukseen. Tiedot kartalle tulevat turku.fi-verkkopalvelusta sekä kansallisesta palvelutietovarannosta ja esteettömyyssovelluksesta.
+        h2
+          span.icon.icon-icon-feedback
+          |  Palaute
+        p Kiitämme kaikesta palautteesta, jotta voimme kehittää Palvelukarttaa yhä paremmaksi.
+        div.prominent-wrapper
+          a.feedback-link.blue-link.prominent(href='#!') Lähetä palautetta Palvelukartasta
+        p Palvelukartan kautta voit lähettää palautetta myös yksittäisille toimipisteille. Hae haluamasi toimipiste kartalle, niin löydät palautelomakkeen toimipisteen tiedoista.
+
+        h2 © Tiedot ja tekijänoikeudet
+        p Palvelukartta on rakennettu mahdollisimman täydellisesti avointa dataa ja avointa lähdekoodia käyttäen.
+        p
+          | Kartan lähdekoodi löytyy !{externalLink("https://github.com/City-of-Turku/servicemap/", 'GitHubista')}
+          |  ja sen kehittämiseen rohkaistaan.
+        p
+          | Palveluiden ja palvelupisteiden tiedot ovat avointa dataa ja käytettävissä !{externalLink("https://palvelukartta.turku.fi/api/v2/", 'REST-rajapinnan kautta.')}
+        p
+          | Karttatiedot haetaan avoimesta !{externalLink("https://www.openstreetmap.org/", 'OpenStreetMapista')}
+          |  ja niiden tekijänoikeus kuuluu !{externalLink("https://www.openstreetmap.org/copyright", 'OpenStreetMapin tekijöille.')}
+        p Reittitiedot tuodaan palveluumme ulkopuolisista tietolähteistä. Emme voi valitettavasti taata tietojen oikeellisuutta.
+        p Poikkeuksena vapaaseen käyttöön veistosten ja julkisen taiteen pisteiden valokuvat ovat tekijänoikeussuojattuja, eikä niitä voi käyttää kaupallisiin tarkoituksiin.
+        p
+          | Turun kaupungin rekisteriselosteet löytyvät kootusti !{externalLink("https://rekisteri.turku.fi/Saabe_data/", "rekisteriselostejärjestelmästä")} kohdista turku.fi ja tapahtumakalenteri sekä palautepalvelu.
+
+      if lang == 'sv'
+
+        h2
+          span.icon.icon-icon-info
+          |  Information om tjänsten
+        p Servicekartan visar Åbo stads verksamhetsställen och serviceuppgifter. Servicekartan hjälper kommuninvånare att alltid hitta de senaste uppgifterna om de tjänster som staden erbjuder och om tjänsternas tillgänglighet. Det är möjligt att ge respons via kartan och föra en öppen diskussion direkt med de ansvariga för olika verksamhetsställen och tjänster.
+        p Du kan bekanta dig med servicekartans funktioner på en guidad presentationsrunda.
+        div.prominent-wrapper
+          a.prominent.start-tour-button(href='#') Se kartans presentationsrunda
+        p Servicekartan grundar sig på den servicekarta som Helsingfors stad tagit fram med hjälp av öppen källkod. Kartans uppgifter har hämtats från webbtjänsten turku.fi samt det nationella servicedatalagret och tillgänglighetsapplikationen.
+
+        h2
+          span.icon.icon-icon-feedback
+          |  Respons
+        p Vi är tacksamma för all respons, så att vi kan utveckla Servicekartan och göra den allt bättre.
+        div.prominent-wrapper
+          a.feedback-link.blue-link.prominent(href='#!') Skicka respons om Servicekartan
+        p Via Servicekartan kan du också skicka respons till enskilda verksamhetsställen. Sök verksamhetsstället på kartan, så hittar du en responsblankett bland uppgifterna om verksamhetsstället.
+
+        h2. © Information och upphovsrätt
+        p Servicekartan har byggts så långt som möjligt med hjälp av öppna data och öppen källkod.
+        p
+          | Kartans källkod finns på !{externalLink("https://github.com/City-of-Turku/servicemap/", 'GitHub')}
+          | och vi uppmuntrar användare att utveckla den.
+        p Tjänsternas och verksamhetsställenas uppgifter är öppna data och kan användas via !{externalLink("https://palvelukartta.turku.fi/api/v2/", 'REST-gränssnittet.')}
+        p Kartuppgifterna hämtas från öppna OpenStreetMaps och uppgifternas upphovsrätt ägs av upphovsmännen bakom OpenStreetMaps.
+        p Informationen om färdvägar hämtas till vår tjänst från externa källor. Tyvärr kan vi inte garantera att uppgifterna är korrekta.
+        p Undantag i fråga om fri användning är fotografier av skulpturer och av platser med offentlig konst, som skyddas av upphovsrätten och som inte får användas för kommersiella syften.
+        p Åbo stads registerbeskrivningar finns samlade !{externalLink("https://rekisteri.turku.fi/Saabe_data/",  "i registerbeskrivningssystemet")} under Turku.fi ja Turun seudun tapahtumakalenteri (Turku.fi och Åboregionens evenemangskalender) samt Palautepalvelu (Feedbacktjänsten).
+
+      if lang == 'en'
+        h2
+          span.icon.icon-icon-info
+          |  Information about the service
+        p The Service Map is an open information channel on the service points and services offered by the City of Turku. The Service Map helps the inhabitants of the municipality find current information on services offered by the city, as well as on the accessibility of the services. Using the Map, it is possible to provide feedback and engage in open conversations directly with the people in charge at the services and the service points.
+        p You can acquaint yourself with the functions of the Service Map through a guided tour.
+        div.prominent-wrapper
+          a.prominent.start-tour-button(href='#') Start the feature tour
+        p The Service Map is based on implementation of the open source code of the City of Helsinki. Information on the map comes from the turku.fi website, the Finnish Service Catalogue and the accessibility application.
+        h2
+          span.icon.icon-icon-feedback
+          | Feedback
+        p We appreciate all feedback, which allows us to improve the Service Map and make it even better.
+        div.prominent-wrapper
+          a.feedback-link.blue-link.prominent(href='#!') Provide feedback on the Service Map
+        p You can also provide feedback to particular service points through the Service Map Search the service point on the map, the feedback form can be found among the service point information.
+
+        h2
+          span.icon.icon-icon-copyright
+          |  Information and copyrights
+        p The Service Map was built using as much open data and open source code as possible.
+        p
+          | The source code of the map is available on !{externalLink("https://github.com/City-of-Turku/servicemap/", 'GitHub')}
+          |  and we encourage users to develop it.
+        p
+          | The information on services and service points are open data and usable through the !{externalLink("https://palvelukartta.turku.fi/api/v2/", 'REST interface.')}
+        p
+          | The map data comes from the open service !{externalLink("https://www.openstreetmap.org/", 'OpenStreetMap')}
+          |  and the copyright of the data belongs to the !{externalLink("https://www.openstreetmap.org/copyright", 'makers of OpenStreetMap.')}
+        p The route information is brought to our service from external sources. Unfortunately we cannot guarantee that the information is correct.
+        p An exception to the free-to-use principle are photographs of sculptures and public art points, which are protected by copyright and cannot be used for commercial purposes.
+        p City of Turku file descriptions are collected to !{externalLink("https://rekisteri.turku.fi/Saabe_data/")} (available only in Finnish). Check the sections turku.fi, tapahtumakalenteri and palautepalvelu
