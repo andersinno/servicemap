@@ -92,3 +92,5 @@ default_center: [60.171944, 24.941389]
 max_bounds:
     - [59.4, 23.8]
     - [61.5, 25.8]
+
+use_html_in_opening_hours: False

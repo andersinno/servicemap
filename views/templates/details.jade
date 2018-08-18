@@ -99,8 +99,10 @@ mixin renderConnection(conn)
             if hours.url
               != externalLink(hours.url, hours.content)
             else
-              p
-                +preserveNewlines(uppercaseFirst(hours.content))
+              if appSettings.use_html_in_opening_hours
+                p!= uppercaseFirst(hours.content)
+              else
+                p= uppercaseFirst(hours.content)
 
       if highlight
         .information
