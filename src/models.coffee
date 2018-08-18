@@ -1056,6 +1056,16 @@ define (require) ->
                     @set 'description', attrs.description
                     return description: 'description_length'
         serialize: ->
+            if appSettings.open311_backend_type == 'turku'
+                return @serializeTurku()
+            else
+                return @serializeHelsinki()
+        serializeTurku: ->
+            json = _.pick @toJSON(), 'description', 'email'
+            json.address_string = 'null'
+            json.service_code = appSettings.Turku_open311_service_code
+            json
+        serializeHelsinki: ->
             json = _.pick @toJSON(), 'title', 'first_name', 'description',
                 'email', 'service_request_type', 'can_be_published', 'internal_feedback'
             viewpoints = @get 'accessibility_viewpoints'

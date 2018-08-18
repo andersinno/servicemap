@@ -26,6 +26,7 @@ page_size: 1000
 enable_statistics: true
 open311_backend: https://asiointi.hel.fi/palautews/rest/v1
 open311_write_backend: https://api.hel.fi/servicemap/open311
+open311_backend_type: helsinki
 use_client_bundle: false
 host_based_language_selection: true
 default_param_language: fi
