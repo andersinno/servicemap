@@ -94,3 +94,8 @@ max_bounds:
     - [61.5, 25.8]
 
 use_html_in_opening_hours: False
+
+site_name:
+    fi: 'Pääkaupunkiseudun palvelukartta'
+    sv: 'Servicekarta'
+    en: 'Service Map'
