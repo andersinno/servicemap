@@ -81,6 +81,7 @@ define (require) ->
             serviceNodeId = $targetElement.closest('li').data('service-node-id')
             if @selected serviceNodeId
                 app.request 'removeServiceNode', serviceNodeId
+                app.navigation.currentView.setMaxHeight()
             else
                 serviceNode = new models.ServiceNode id: serviceNodeId
                 serviceNode.fetch
