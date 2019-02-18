@@ -196,18 +196,20 @@ define (require) ->
 
             cities = p13n.getCities()
 
-            listItems = @collection.filter((c) => c.get('unit_count') != 0).map (category) =>
-                selected = @selected(category.id)
-                rootId = category.get 'root'
+            listItems = @collection
+                .filter((c) => c.get('unit_count').total != 0 and (c.get('parent') != null or c.get('children').length > 0))
+                .map (category) =>
+                    selected = @selected(category.id)
+                    rootId = category.get 'root'
 
-                id: category.get 'id'
-                name: category.getText 'name'
-                classes: classes(category).join " "
-                has_children: category.get('children').length > 0
-                count: countUnits cities, category
-                selected: selected
-                root_id: rootId
-                show_button_classes: @getShowButtonClasses selected, rootId
+                    id: category.get 'id'
+                    name: category.getText 'name'
+                    classes: classes(category).join " "
+                    has_children: category.get('children').length > 0
+                    count: countUnits cities, category
+                    selected: selected
+                    root_id: rootId
+                    show_button_classes: @getShowButtonClasses selected, rootId
 
             parentItem = {}
             back = null
