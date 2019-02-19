@@ -46,7 +46,7 @@ define (require) ->
             public: ['bus', 'tram', 'metro', 'train', 'ferry']
             bicycle: ['bicycle_parked', 'bicycle_with']
         language: SUPPORTED_LANGUAGES
-        map_background_layer: ['servicemap', 'ortographic', 'guidemap', 'accessible_map']
+        map_background_layer: appSettings.map_background_layers
         heatmap_layer: [null, HEATMAP_LAYERS...]
         statistics_layer: [null, STATISTICS_LAYERS...]
         city: [null, city.name for city in appSettings.cities]

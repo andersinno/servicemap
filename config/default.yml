@@ -89,6 +89,12 @@ cities:
     - name: kauniainen
       location: [60.21174, 24.729595]
 
+map_background_layers:
+    - servicemap
+    - ortographic
+    - guidemap
+    - accessible_map
+
 default_center: [60.171944, 24.941389]
 max_bounds:
     - [59.4, 23.8]
