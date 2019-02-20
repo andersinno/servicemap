@@ -182,19 +182,21 @@ define (require) ->
                 else
                     return ['service-node leaf']
 
-            listItems = @collection.filter((c) => c.get('unit_count') != 0).map (category) =>
-                selected = @selected(category.id)
+            listItems = @collection
+                .filter((c) => c.get('unit_count').total != 0 and (c.get('parent') != null or c.get('children').length > 0))
+                .map (category) =>
+                    selected = @selected(category.id)
 
-                rootId = category.get 'root'
+                    rootId = category.get 'root'
 
-                id: category.get 'id'
-                name: category.getText 'name'
-                classes: classes(category).join " "
-                has_children: category.get('children').length > 0
-                unit_count: category.get('unit_count')
-                selected: selected
-                root_id: rootId
-                show_button_classes: @getShowButtonClasses selected, rootId
+                    id: category.get 'id'
+                    name: category.getText 'name'
+                    classes: classes(category).join " "
+                    has_children: category.get('children').length > 0
+                    unit_count: category.get('unit_count')
+                    selected: selected
+                    root_id: rootId
+                    show_button_classes: @getShowButtonClasses selected, rootId
 
             parentItem = {}
             back = null
