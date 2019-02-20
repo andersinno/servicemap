@@ -106,3 +106,7 @@ site_name:
     fi: 'Pääkaupunkiseudun palvelukartta'
     sv: 'Servicekarta'
     en: 'Service Map'
+
+# settings for general feedback form
+open311_service_code: 4a872cbf-aefa-e711-80f5-001dd8b71c08
+open311_api_key: ''

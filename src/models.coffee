@@ -16,7 +16,10 @@ define (require) ->
     BACKEND_BASE = appSettings.service_map_backend
     LINKEDEVENTS_BASE = appSettings.linkedevents_backend
     OPEN311_BASE = appSettings.open311_backend
-    OPEN311_WRITE_BASE = appSettings.open311_write_backend + '/'
+    if appSettings.open311_backend_type == 'turku'
+        OPEN311_WRITE_BASE = appSettings.open311_write_backend
+    else
+        OPEN311_WRITE_BASE = appSettings.open311_write_backend + '/'
 
     # TODO: remove and handle in geocoder
     MUNICIPALITIES =
@@ -1063,7 +1066,9 @@ define (require) ->
         serializeTurku: ->
             json = _.pick @toJSON(), 'description', 'email'
             json.address_string = 'null'
-            json.service_code = appSettings.Turku_open311_service_code
+            if appSettings.open311_api_key and appSettings.open311_service_code
+                json.service_code = appSettings.open311_service_code
+                json.api_key = appSettings.open311_api_key
             json
         serializeHelsinki: ->
             json = _.pick @toJSON(), 'title', 'first_name', 'description',
