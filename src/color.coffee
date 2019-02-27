@@ -25,16 +25,16 @@ define (require) ->
                         type: 'helfi_rest_api_v4'
                 roots = [@defaultRootColor]
 
-            findRootInServiceItems = (rootIds, serviceCollection) ->
+            findRootInServiceItems = (rootIds, serviceCollection, unit) ->
                 _(rootIds).find (rootId) ->
                     serviceCollection.find (serviceItem) ->
-                        serviceItem.getRoot() is rootId
+                        serviceItem.getRoot() is rootId and serviceItem._previousAttributes.units.models.includes unit
 
             if @selectedServices?
                 rootServiceNode = findRootInServiceItems roots, @selectedServices
 
             if not rootServiceNode and @selectedServiceNodes?
-                rootServiceNode = findRootInServiceItems roots, @selectedServiceNodes
+                rootServiceNode = findRootInServiceItems roots, @selectedServiceNodes, unit
 
             if not rootServiceNode
                 rootServiceNode = roots[0]
