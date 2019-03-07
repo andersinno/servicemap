@@ -28,13 +28,19 @@ define (require) ->
             findRootInServiceItems = (rootIds, serviceCollection, unit) ->
                 _(rootIds).find (rootId) ->
                     serviceCollection.find (serviceItem) ->
-                        serviceItem.getRoot() is rootId and serviceItem._previousAttributes.units.models.includes unit
+                        if serviceItem._previousAttributes.units
+                            return serviceItem.getRoot() is rootId and serviceItem._previousAttributes.units and serviceItem._previousAttributes.units.models.includes unit
+                        else
+                            return serviceItem.getRoot() is rootId
 
             if @selectedServices?
                 rootServiceNode = findRootInServiceItems roots, @selectedServices
 
             if not rootServiceNode and @selectedServiceNodes?
                 rootServiceNode = findRootInServiceItems roots, @selectedServiceNodes, unit
+
+            if not rootServiceNode and unit.extra_color?
+                rootServiceNode = unit.extra_color
 
             if not rootServiceNode
                 rootServiceNode = roots[0]
