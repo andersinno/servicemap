@@ -210,6 +210,7 @@ define (require) ->
             @unitListRegion.show @view
             @listenToOnce @view, 'user:close', =>
                 @unitListRegion.empty()
+                $(".icon-icon-show-service-points").click()
                 if @model.get 'position'
                     app.request 'clearRadiusFilter'
             if @model.get('collectionType') == 'radius'
