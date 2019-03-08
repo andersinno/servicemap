@@ -223,7 +223,7 @@ define (require) ->
                 collapsed: @collapsed || false
                 back: back
                 parent_item: parentItem
-                list_items: listItems
+                list_items: _.sortBy listItems, 'name' # couldn't sort it via comparator; so manually done here
                 breadcrumbs: _.initial @breadcrumbs # everything but the last crumb
             data
 

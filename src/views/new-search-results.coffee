@@ -205,7 +205,7 @@ define (require) ->
             @view = new SearchResultsCompositeView
                 model: @model
                 collection: new models.UnitList null, setComparator: false
-                fullCollection: @fullCollection
+                fullCollection: @fullCollection.sort()
                 selectedServiceNodes: @selectedServiceNodes
             @unitListRegion.show @view
             @listenToOnce @view, 'user:close', =>
