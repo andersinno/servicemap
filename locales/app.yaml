@@ -4,16 +4,19 @@ municipality:
         helsinki: Helsinki
         kauniainen: Kauniainen
         vantaa: Vantaa
+        turku: Turku
     en:
         espoo: Espoo
         helsinki: Helsinki
         kauniainen: Kauniainen
         vantaa: Vantaa
+        turku: Turku
     sv:
         espoo: Esbo
         helsinki: Helsingfors
         kauniainen: Grankulla
         vantaa: Vanda
+        turku: Åbo
 general:
     en:
         units: __count__ <span class="sr-only">service point</span>
