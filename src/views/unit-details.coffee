@@ -220,6 +220,9 @@ define (require) ->
                 data.back_to = i18n.t 'sidebar.back_to.search'
             MAX_LENGTH = 20
             description = data.description
+            service_pattern = data.description.match /<b[>](Palvelut|Services|Tjänster)[<]/
+            if service_pattern?
+                description = description.slice(0, service_pattern.index)
             if description
                 words = description.split /[ ]+/
                 if words.length > MAX_LENGTH + 1
