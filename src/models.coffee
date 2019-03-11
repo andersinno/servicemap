@@ -422,7 +422,7 @@ define (require) ->
 
     class UnitList extends SMCollection
         model: Unit
-        comparator: null
+        comparator: (item) -> item.get 'name'
         initialize: (models, opts) ->
             super models, opts
             @forcedPriority = opts?.forcedPriority
