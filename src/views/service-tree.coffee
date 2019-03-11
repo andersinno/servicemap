@@ -83,19 +83,12 @@ define (require) ->
                 app.request 'removeServiceNode', serviceNodeId
                 app.navigation.currentView.setMaxHeight()
             else
-                if "_" in serviceNodeId
-                    serviceNode = new models.ServiceNode id: serviceNodeId
-                    serviceNode.fetch
-                        success: =>
-                            app.request 'addServiceNode', serviceNode, {}
-                else
-                    chosenServiceNode = @collection.chosenServiceNode
-                    unit = new models.Unit id:serviceNodeId
-                    unit.fetch
-                        success: =>
-                            # attach the current service_node to find the correct color
-                            unit.extra_color = chosenServiceNode.id
-                            app.request 'selectUnit', unit, {}
+                serviceNode = new models.ServiceNode id: serviceNodeId
+                serviceNode.fetch
+                    success: =>
+                        app.request 'addServiceNode', serviceNode, {}
+
+        handleBreadcrumbClick: (event) ->
             event.preventDefault()
             # We need to stop the event from bubling to the containing element.
             # That would make the service tree go back only one step even if
@@ -186,7 +179,7 @@ define (require) ->
 
         serializeData: ->
             classes = (category) ->
-                if category.get('children') and category.get('children').length > 0
+                if category.get('children').length > 0
                     return ['service-node has-children']
                 else
                     return ['service-node leaf']
@@ -194,9 +187,7 @@ define (require) ->
             countUnits = (cities, category) ->
                 unitCount = category.get('unit_count')
                 if cities.length == 0
-                    if unitCount
-                        return unitCount.total
-                    return
+                    return unitCount.total
                 else
                     filteredCities = _.pick unitCount.municipality, cities
                     return _.reduce _.values(filteredCities),
@@ -206,7 +197,7 @@ define (require) ->
             cities = p13n.getCities()
 
             listItems = @collection
-                .filter((c) => (c.get('unit_count').total if c.get('unit_count')) != 0 and (c.get('parent') != null or ( c.get('children').length if c.get('children')) > 0))
+                .filter((c) => c.get('unit_count').total != 0 and (c.get('parent') != null or c.get('children').length > 0))
                 .map (category) =>
                     selected = @selected(category.id)
                     rootId = category.get 'root'
@@ -214,7 +205,7 @@ define (require) ->
                     id: category.get 'id'
                     name: category.getText 'name'
                     classes: classes(category).join " "
-                    has_children: (category.get('children').length if category.get('children')) > 0
+                    has_children: category.get('children').length > 0
                     count: countUnits cities, category
                     selected: selected
                     root_id: rootId
