@@ -4,16 +4,19 @@ municipality:
         helsinki: Helsinki
         kauniainen: Kauniainen
         vantaa: Vantaa
+        turku: Turku
     en:
         espoo: Espoo
         helsinki: Helsinki
         kauniainen: Kauniainen
         vantaa: Vantaa
+        turku: Turku
     sv:
         espoo: Esbo
         helsinki: Helsingfors
         kauniainen: Grankulla
         vantaa: Vanda
+        turku: Åbo
 general:
     en:
         units: __count__ <span class="sr-only">service point</span>
@@ -944,7 +947,6 @@ tour:
                   <li>Service Points</li>
                   <li>Addresses</li>
                   <li>Service Categories</li>
-                  <li>Events</li>
                   </ul>
             - title: Browse Service Categories
               content: Click on the icon next to the category name to reveal all the Service Points within the relevant category on the map. The number tells how many Service Points the category has.
@@ -955,7 +957,7 @@ tour:
             - title: Find a Route
               content: Use the routing feature to find a route to the Service Point. The available transportation modes are public transportation, driving, cycling and walking.
             - title: Choose Appropriate View
-              content: Choose between various background maps and aerial photographs. A high contrast background map is also available.
+              content: Choose between basic background map and a high contrast background map.
             - title: Choose Language
               content: Choose between Finnish, Swedish and English languages. All content on the website will be shown in your chosen language until you make another language choice from this panel.
             - title: Provide Feedback to Us
@@ -963,10 +965,10 @@ tour:
             - title: Now start using the Service Map!
               content: Click anywhere on the map to start using it. Not sure what to do? Try these examples.
         examples:
-            health: Health centres
-            beach: Beaches for swimming
-            art: Public artworks
-            glass_recycling: Glass recycling
+            health: Health services
+            beach: Swimming baths and beaches
+            daycare: Daycare and preschool education
+            library: Libraries
         tour_ok: Got it!
     fi:
         start: Katso kartan esittelykierros
@@ -993,7 +995,6 @@ tour:
                   <ul><li>palvelupisteitä</li>
                   <li>osoitteita</li>
                   <li>palveluiden aiheita</li>
-                  <li>tapahtumia</li></ul>
             - title: Selaa palveluita
               content: Selaamalla voi tutustua palveluihin aiheittain jaoteltuna. Pääotsikoita klikkaamalla näet yhä tarkemmin, mitä palveluita ne pitävät sisällään.
             - title: Näytä palvelupisteet kartalla
@@ -1003,7 +1004,7 @@ tour:
             - title: Hae reitti
               content: Reittihaun avulla löydät reitin palvelupisteeseen valitsemastasi lähtöpisteestä. Käytössä olevat kulkumuodot ovat auto, julkinen liikenne, pyöräily ja kävely.
             - title: Muokkaa karttanäkymää
-              content: Voit valita erilaisten pohjakarttojen ja ilmakuvan väliltä. Lisäksi käytettävissä on korkeakontrastinen kartta.
+              content: Voit valita pohjakartan ja korkeakontrastisen kartan välillä.
             - title: Valitse kieli
               content: Voit vaihtaa Palvelukartan kieltä milloin vain. Valitsemasi kieli säilyy, kunnes vaihdat sitä jälleen.
             - title: Anna meille palautetta
@@ -1012,10 +1013,10 @@ tour:
               content: |
                   Klikkaa minne vain kartalla aloittaaksesi sen käytön. Jos et tiedä, mitä hakea, voit kokeilla näitä esimerkkihakuja:
         examples:
-            health: Terveysasemat
-            beach: Uimarannat
-            art: Julkiset taideteokset
-            glass_recycling: Lasin kierrätys
+            health: Terveyspalvelut
+            beach: Uimahallit ja -rannat
+            daycare: Päivähoito ja esiopetus
+            library: Kirjastot
         tour_ok: Selvä!
     sv:
         start: Se kartans presentationsrunda
@@ -1042,7 +1043,6 @@ tour:
                   <ul><li>serviceställen</li>
                   <li>adresser</li>
                   <li>kategorier för tjänster</li
-                  <li>evenemang</li></ul>
             - title: Bläddra tjänster
               content: Klicka på ikonen bredvid kategorinamnet för att visa alla servicepunkter inom relevanta kategorin på kartan. Antalet du ser berättar hur många servicepunkter kategorin har.
             - title: Visa serviceställena på kartan
@@ -1053,7 +1053,7 @@ tour:
               content: |
                   Klicka på mina inställningar-knapp för att se dina egna hjälpmedelsinställningar. Hjälpmedelsinställingarna inkluderar: hörsel och syn, rörlighet, stad.
             - title: Redigera kartvyn
-              content: Du kan välja mellan olika baskartor och flygbilder. Dessutom finns en karta med hög kontrast.
+              content: Du kan välja mellan en baskarta och en karta med hög kontrast.
             - title: Välj språk
               content: Du kan ändra Servicekartans språk när som helst. Språkvalet gäller tills du byter det igen.
             - title: Ge oss respons
@@ -1062,10 +1062,10 @@ tour:
               content: |
                   Klicka var du vill på kartan för att börja använda den. Om du inte vet vad du vill söka, kan du prova de här exempelsökningarna:
         examples:
-            health: Hälsostationer
-            beach: Badstrand
-            art: Skulpturer och offentlig konst
-            glass_recycling: Glasåtervinning
+            health: Hälsovårdtjänster
+            beach: Simhallar och stränder
+            daycare: Dagvård och förskoleundervisning
+            library: Bibliotek
         tour_ok: Okej!
 search:
     fi:

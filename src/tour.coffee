@@ -133,22 +133,22 @@ define (require) ->
             {
                 key: 'health'
                 name: t('tour.examples.health')
-                serviceNode: 991
+                serviceNode: '1_21'
             },
             {
                 key: 'beach'
                 name: t('tour.examples.beach')
-                serviceNode: 689
+                serviceNode: '1_50'
             },
             {
-                key: 'art'
-                name: t('tour.examples.art')
-                serviceNode: 2006
+                key: 'daycare'
+                name: t('tour.examples.daycare')
+                serviceNode: '1_7'
             },
             {
-                key: 'glass_recycling'
-                name: t('tour.examples.glass_recycling')
-                serviceNode: 40
+                key: 'library'
+                name: t('tour.examples.library')
+                serviceNode: '1_39'
             },
         ]
 
