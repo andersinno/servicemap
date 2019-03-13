@@ -10,7 +10,8 @@ mixin renderConnection(conn)
         = " "
         = conn.contact_person
       if conn.phone && (tAttr(conn.name).indexOf(conn.phone) === -1)
-        = ", "
+        if (tAttr(conn.name)).length > 0
+          = ", "
         span(itemprop="telephone")
           a(href="tel:#{phoneI18n(conn.phone)}")= conn.phone
       if conn.email
