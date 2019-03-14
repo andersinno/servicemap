@@ -92,7 +92,6 @@ define (require) ->
                 displayKey: (c) -> c.name[p13n.getLanguage()]
                 templates:
                     suggestion: (ctx) ->
-                        ctx.object_type = 'event'
                         jade.template 'typeahead-suggestion', ctx
 
             # A hack needed to ensure the header is always rendered.

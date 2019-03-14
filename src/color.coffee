@@ -28,7 +28,10 @@ define (require) ->
             findRootInServiceItems = (rootIds, serviceCollection, unit) ->
                 _(rootIds).find (rootId) ->
                     serviceCollection.find (serviceItem) ->
-                        serviceItem.getRoot() is rootId and serviceItem._previousAttributes.units.models.includes unit
+                        if serviceItem._previousAttributes.units?
+                            serviceItem.getRoot() is rootId and serviceItem._previousAttributes.units.models.includes unit
+                        else
+                            serviceItem.getRoot() is rootId
 
             if @selectedServices?
                 rootServiceNode = findRootInServiceItems roots, @selectedServices
