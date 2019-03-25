@@ -110,3 +110,8 @@ site_name:
 # settings for general feedback form
 open311_service_code: 4a872cbf-aefa-e711-80f5-001dd8b71c08
 open311_api_key: ''
+
+# settings for map server
+map_server: https://geoserver.hel.fi
+satellite_map_server: https://kartta.hsy.fi
+guide_map_server: https://kartta.hel.fi
