@@ -159,3 +159,7 @@ define (require) ->
                         new models.Event(data)
                 when 'query'
                     app.request 'search', data.query, {}
+                when 'servicenode'
+                    serviceNode = new models.ServiceNode(data)
+                    app.request 'addServiceNode', serviceNode, {}
+
