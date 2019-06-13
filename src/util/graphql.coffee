@@ -42,6 +42,10 @@ define ->
                 trip { tripHeadsign }
                 route { longName, shortName }
                 intermediateStops { name }
+                intermediatePlaces{
+                    arrivalTime
+                    name
+                }
                 startTime
                 endTime
                 from {

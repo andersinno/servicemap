@@ -350,17 +350,17 @@ define (require) ->
             #         if 'alerts' of step and step.alerts.length
             #             warning = step.alerts[0].alertHeaderText.someTranslation
             #         steps.push(text: text, warning: warning)
-            if leg.mode in MODES_WITH_STOPS and leg.intermediateStops
+            if leg.mode in MODES_WITH_STOPS and leg.intermediatePlaces
                 if 'alerts' of leg and leg.alerts.length
                     for alert in leg.alerts
                         steps.push(
                             text: ""
                             warning: alert.alertHeaderText.someTranslation
                         )
-                for stop in leg.intermediateStops
+                for stop in leg.intermediatePlaces
                     steps.push(
                         text: p13n.getTranslatedAttr(stop.translatedName) || stop.name
-                        time: moment(stop.arrival).format('LT')
+                        time: moment(stop.arrivalTime).format('HH:mm')
                     )
             steps
 
