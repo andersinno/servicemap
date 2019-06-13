@@ -357,10 +357,10 @@ define (require) ->
                             text: ""
                             warning: alert.alertHeaderText.someTranslation
                         )
-                for stop in leg.intermediateStops
+                for stop in leg.intermediatePlaces
                     steps.push(
                         text: p13n.getTranslatedAttr(stop.translatedName) || stop.name
-                        time: moment(stop.arrival).format('LT')
+                        time: moment(stop.arrivalTime).format('HH:mm')
                     )
             steps
 
