@@ -41,7 +41,6 @@ define ->
                 mode
                 trip { tripHeadsign }
                 route { longName, shortName }
-                intermediateStops { name }
                 intermediatePlaces{
                     arrivalTime
                     name
