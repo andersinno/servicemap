@@ -30,7 +30,8 @@ define (require) ->
                 else
                     "osm-sm/etrs_tm35fin"
         path = [
-            "https://geoserver.hel.fi/mapproxy/wmts",
+            appSettings.map_server,
+            "mapproxy/wmts",
             stylePath,
             "{z}/{x}/{y}.png"
         ]
@@ -67,9 +68,9 @@ define (require) ->
 
             layer: (opts) ->
                 KYMPGeoserverUrl = (layerName, layerFmt) ->
-                    "https://kartta.hel.fi/ws/geoserver/gwc/service/tms/1.0.0/#{layerName}@ETRS-GK25@#{layerFmt}/{z}/{x}/{y}.#{layerFmt}"
+                    "#{appSettings.guide_map_server}/ws/geoserver/gwc/service/tms/1.0.0/#{layerName}@ETRS-GK25@#{layerFmt}/{z}/{x}/{y}.#{layerFmt}"
                 HSYGeoserverUrl = (layerName, layerFmt) ->
-                    "https://kartta.hsy.fi/geoserver/gwc/service/wmts?layer=#{layerName}&tilematrixset=ETRS-GK25&Service=WMTS&Request=GetTile&Version=1.0.0&TileMatrix=ETRS-GK25:{z}&TileCol={x}&TileRow={y}&Format=image/#{layerFmt}"
+                    "#{appSettings.satellite_map_server}/geoserver/gwc/service/wmts?layer=#{layerName}&tilematrixset=ETRS-GK25&Service=WMTS&Request=GetTile&Version=1.0.0&TileMatrix=ETRS-GK25:{z}&TileCol={x}&TileRow={y}&Format=image/#{layerFmt}"
                 if opts.style == 'ortographic'
                     ortoImageUrl = HSYGeoserverUrl("taustakartat_ja_aluejaot:Ortoilmakuva_2017","jpeg")
                     ortoImageOptions =
