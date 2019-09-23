@@ -55,6 +55,10 @@ define (require) ->
                     name: i18n.t 'tools.info_action'
                     action: _.bind @infoAction, @
                     icon: 'info'
+                new Backbone.Model
+                    name: i18n.t 'accessibility_info.info'
+                    action: _.bind @accessibilityAction, @
+                    icon: 'info'
             ]
             menu = new ContextMenu collection: new Backbone.Collection models
             @toolContext.show menu
@@ -91,6 +95,8 @@ define (require) ->
             app.request 'composeFeedback', null
         infoAction: (ev) ->
             app.request 'showServiceMapDescription'
+        accessibilityAction: (ev) ->
+            app.request 'showAccessibilityMapDescription'
         getMapBoundsBbox: ->
             # TODO: don't break architecture thusly
             __you_shouldnt_access_me_like_this = window.mapView.map
