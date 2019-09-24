@@ -38,7 +38,7 @@ define (require) ->
             layer: (opts) ->
                 L.tileLayer wmtsPath(opts.style, opts.language),
                     maxZoom: 18
-                    minZoom: 9
+                    minZoom: 12
                     continuousWorld: true
                     tms: false
         tm35:
