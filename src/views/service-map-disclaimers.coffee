@@ -41,6 +41,10 @@ define (require) ->
             copyrightLink: copyrightLink
         events:
             'click #about-the-service': 'onAboutClick'
+            'click #about-the-accessibility': 'onAccessibilityClick'
         onAboutClick: (ev) ->
             app.request 'showServiceMapDescription'
+            ev.preventDefault()
+        onAccessibilityClick: (ev) ->
+            app.request 'showAccessibilityMapDescription'
             ev.preventDefault()

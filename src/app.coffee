@@ -255,6 +255,10 @@ define (require) ->
             app.getRegion('feedbackFormContainer').show new disclaimers.ServiceMapDisclaimersView()
             $('#feedback-form-container').modal('show')
 
+        showAccessibilityMapDescription: ->
+            app.getRegion('feedbackFormContainer').show new disclaimers.ServiceMapAccessibilityDescriptionView()
+            $('#feedback-form-container').modal('show')
+
         showExportingView: ->
             app.getRegion('feedbackFormContainer').show new ExportingView appModels
             $('#feedback-form-container').modal('show')
@@ -442,6 +446,7 @@ define (require) ->
             "closeFeedback"
 
             "showServiceMapDescription"
+            "showAccessibilityMapDescription"
 
             "showExportingView"
 

@@ -1299,6 +1299,15 @@ disclaimer:
             accessible_map: Upphovsmännen bakom OpenStreetMaps
             guidemap: Helsingfors, Esbo och Vanda städer
             ortographic: Helsingfors, Esbo och Vanda städer
+
+accessibility_info:
+    fi:
+        info: Saavutettavuusseloste
+    en:
+        info: Accessibility
+    sv:
+        info: Saavutettavuusseloste
+
 tools:
     fi:
         print_action: Tulosta
