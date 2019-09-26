@@ -29,7 +29,7 @@ define (require) ->
                 _(rootIds).find (rootId) ->
                     serviceCollection.find (serviceItem) ->
                         if serviceItem._previousAttributes.units?
-                            serviceItem.getRoot() is rootId and serviceItem._previousAttributes.units.models.includes unit
+                            serviceItem.getRoot() is rootId and serviceItem._previousAttributes.units.models.indexOf(unit) != -1
                         else
                             serviceItem.getRoot() is rootId
 
